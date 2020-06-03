@@ -63,7 +63,8 @@ sleep 2s
 clear
 
 echo -e "${seta} ${blue}Instalando pacotes necessários${end}"
-echo $pass_user | sudo -S pacman -S accountsservice alsa-utils archlinux-keyring archlinux-wallpaper baobab bash-completion blueberry bluez bluez-cups bluez-tools bolt cmatrix colord coreutils cpio cronie dialog ffmpegthumbnailer gimp gnome-bluetooth gedit gnome-calculator gnome-calendar gnome-disk-utility gnome-keyring gnome-menus gnome-online-accounts gnome-power-manager gnome-screenshot gnome-settings-daemon gnome-system-monitor gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lollypop man-db metacity mtools neofetch pass rsync system-config-printer tcpdump totem ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip xreader youtube-dl --noconfirm
+echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion cmatrix
+cronie dialog gimp gnome-keyring gnome-tweaks gnupg gufw htop libreoffice libreoffice-fresh-pt-br man-db neofetch pass rsync tcpdump totem ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl --noconfirm
 sleep 2s
 clear
 
@@ -73,6 +74,44 @@ cd yay
 makepkg -si --noconfirm
 sleep 2s
 clear
+
+echo -e "${seta} ${blue}Instalando o virt-manager${end}"
+echo $pass_user | sudo -S pacman -S qemu virt-manager dnsmasq libvirt ebtables bridge-utils edk2-ovmf spice-vdagent --noconfirm
+sleep 2s
+clear
+
+echo -e "${seta} ${blue}Iniciando o daemon libvirt${end}"
+echo $pass_user | sudo -S systemctl enable libvirtd.service
+echo $pass_user | sudo -S systemctl start libvirtd.service
+sleep 2s
+clear
+
+echo -e "${seta} ${blue}Inserindo o usuário no grupo libvirt${end}"
+echo $pass_user | sudo -S usermod -aG libvirt $USER
+sleep 2s
+clear
+
+echo -e "${seta} ${blue}Configurando a rede do virt-manager para iniciar automáticamente${end}"
+echo $pass_user | sudo -S virsh net-autostart --network default
+sleep 2s
+clear
+
+echo -e "${seta} ${blue}Instalando o timeshift${end}"
+yay -S timeshift --noconfirm
+sleep 2s
+clear
+
+# Hackerman -------------------------------------------------------
+echo -e "${seta} ${blue}Instalando aircrack-ng e usbutils${end}"
+echo $pass_user | sudo -S pacman -S aircrack-ng usbutils --noconfirm
+sleep 2s
+clear
+
+echo -e "${seta} ${blue}Instalando o crunch${end}"
+yay -S crunch --noconfirm
+sleep 2s
+clear
+# Hackerman -------------------------------------------------------
 
 echo -e "${seta} ${blue}Instalando o gnome-terminal-transparency${end}"
 yay -S gnome-terminal-transparency --noconfirm
@@ -85,12 +124,38 @@ sleep 2s
 clear
 
 echo -e "${seta} ${blue}Instalando o mint-icons${end}"
-yay -S mint-y-icons --noconfirm
+yay -S mint-x-icons mint-y-icons --noconfirm
+sleep 2s
+clear
+
+echo -e "${seta} ${blue}Instalando o debtap${end}"
+yay -S debtap --noconfirm
 sleep 2s
 clear
 
 echo -e "${seta} ${blue}Instalando o google-chrome${end}"
 yay -S google-chrome --noconfirm
+sleep 2s
+clear
+
+echo -e "${seta} ${blue}Instalando spotify${end}"
+yay -S spotify --noconfirm
+sleep 2s
+clear
+
+echo -e "${seta} ${blue}Instalando o xviewer${end}"
+yay -S xviewer xviewer-plugins --noconfirm
+sleep 2s
+clear
+
+echo -e "${seta} ${blue}Instalando as fontes${end}"
+yay -S ttf-ms-fonts --noconfirm
+yay -S ttf-ubuntu-font-family --noconfirm
+sleep 2s
+clear
+
+echo -e "${seta} ${blue}Instalando o gnome-online-accounts-git${end}"
+yay -S gnome-online-accounts-git --noconfirm
 sleep 2s
 clear
 
