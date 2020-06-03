@@ -15,7 +15,7 @@ driver_virtmanager(){
 }
 
 driver_nvidia(){
-    echo $pass_user | sudo -S pacman -S nvidia nvidia-utils nvidia-settings intel-ucode --noconfirm
+    echo $pass_user | sudo -S pacman -S nvidia nvidia-utils intel-ucode --noconfirm
 }
 # GDM ----------------------------------------------------------------
 instalar_gdm(){
