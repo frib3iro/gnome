@@ -103,12 +103,12 @@ echo -e "${seta} ${blue}Iniciando o xdg-update${end}"
 xdg-user-dirs-update
 sleep 2s
 
-# echo -e "${seta} ${blue}Instalando o gdm${end}"
-# instalar_gdm 
-# sleep 2s
-# clear
-# 
-# echo -e "${seta} ${blue}Iniciando o serviço do gdm${end}"
-# iniciar_gdm
-# sleep 2s
-# clear
+echo -e "${seta} ${blue}Instalando o gdm${end}"
+instalar_gdm 
+sleep 2s
+clear
+
+echo -e "${seta} ${blue}Iniciando o serviço do gdm${end}"
+iniciar_gdm
+sleep 2s
+clear
