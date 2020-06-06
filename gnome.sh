@@ -19,7 +19,7 @@ driver_virtmanager(){
 driver_nvidia(){
     echo $pass_user | sudo -S pacman -S nvidia nvidia-utils intel-ucode --noconfirm
 }
-# GDM ----------------------------------------------------------------
+
 instalar_gdm(){
     echo $pass_user | sudo -S pacman -S gdm --noconfirm
 }
@@ -68,54 +68,9 @@ clear
 
 echo -e "${seta} ${blue}Instalando pacotes necessários${end}"
 sleep 2s
-echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gufw htop libreoffice libreoffice-fresh-pt-br man-db neofetch pass powerline-fonts rsync tcpdump totem ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl --noconfirm
+echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gufw htop libreoffice libreoffice-fresh-pt-br man-db neofetch pass powerline-fonts rsync tcpdump totem ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip xfce4-terminal youtube-dl --noconfirm
 clear
 
-# ZSH ------------------------------------------------------------
-echo -e "${seta} ${blue}Baixando o zsh e o zsh-completions${end}"
-sleep 2s
-echo $pass_user | sudo -S pacman -S zsh zsh-completions
-clear
-
-echo -e "${seta} ${blue}Baixando o oh-my-zsh${end}"
-sleep 2s
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-clear
-
-echo -e "${seta} ${blue}Mudando o shell padrão pelo zsh${end}"
-sleep 2s
-echo $pass_user | sudo -S usermod --shell $(which zsh) $user
-echo $pass_user | sudo -S usermod --shell $(which zsh) $root
-clear
-
-echo -e "${seta} ${blue}Instalando o zsh-syntax-highlighting${end}"
-sleep 2s
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-clear
-
-echo -e "${seta} ${blue}Instalando o zsh-autosuggestions${end}"
-sleep 2s
-git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-clear
-
-echo -e "${seta} ${blue}Instalando o fuzzy finder (buscador de arquivos)${end}"
-echo -e "${seta} ${yellow}Lembre-se de responder${end} ${red}[ y ]${end} ${yellow}para as questões que serão feitas!${end}"
-sleep 3s
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
-clear
-
-echo -e "${seta} ${blue}Importar as configuracoes e temas do OhMyZsh para o usuario root${end}\n"
-echo -e "${seta} ${blue}Copiando o arquivo .zshrc para o diretório /root${end}"
-sleep 2s
-sudo cp /home/$user/.zshrc /root
-clear
-
-echo -e "${seta} ${blue}Copiando a pasta .oh-my-zsh para o diretório /root${end}"
-sleep 2s
-sudo cp -r /home/$user/.oh-my-zsh /root
-clear
-
-# ZSH ------------------------------------------------------------
 echo -e "${seta} ${blue}Instalando o yay${end}"
 sleep 2s
 git clone https://aur.archlinux.org/yay.git
@@ -161,11 +116,6 @@ yay -S crunch --noconfirm
 clear
 # Hackerman -------------------------------------------------------
 
-echo -e "${seta} ${blue}Instalando o gnome-terminal-transparency${end}"
-sleep 2s
-yay -S gnome-terminal-transparency --noconfirm
-clear
-
 echo -e "${seta} ${blue}Instalando os${end} ${yellow}firmwares warnigs${end} ${blue}do archlinux${end}"
 sleep 2s
 yay -S aic94xx-firmware wd719x-firmware --noconfirm
@@ -203,15 +153,55 @@ yay -S ttf-roboto --noconfirm
 yay -S ttf-ubuntu-font-family --noconfirm
 clear
 
-echo -e "${seta} ${blue}Instalando o gnome-online-accounts-git${end}"
-sleep 2s
-yay -S gnome-online-accounts-git --noconfirm
-clear
-
 echo -e "${seta} ${blue}Iniciando o xdg-update${end}"
 sleep 2s
 xdg-user-dirs-update
 clear
+
+# ZSH ------------------------------------------------------------
+echo -e "${seta} ${blue}Baixando o zsh e o zsh-completions${end}"
+sleep 2s
+echo $pass_user | sudo -S pacman -S zsh zsh-completions
+clear
+
+echo -e "${seta} ${blue}Baixando o oh-my-zsh${end}"
+sleep 2s
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+clear
+
+echo -e "${seta} ${blue}Mudando o shell padrão pelo zsh${end}"
+sleep 2s
+echo $pass_user | sudo -S usermod --shell $(which zsh) $user
+echo $pass_user | sudo -S usermod --shell $(which zsh) $root
+clear
+
+echo -e "${seta} ${blue}Instalando o zsh-syntax-highlighting${end}"
+sleep 2s
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+clear
+
+echo -e "${seta} ${blue}Instalando o zsh-autosuggestions${end}"
+sleep 2s
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+clear
+
+echo -e "${seta} ${blue}Instalando o fuzzy finder (buscador de arquivos)${end}"
+echo -e "${seta} ${yellow}Lembre-se de responder${end} ${red}[ y ]${end} ${yellow}para as questões que serão feitas!${end}"
+sleep 3s
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+clear
+
+echo -e "${seta} ${blue}Importar as configuracoes e temas do Oh My Zsh para o usuario root${end}\n"
+echo -e "${seta} ${blue}Copiando o arquivo .zshrc para o diretório /root${end}"
+sleep 2s
+sudo cp /home/$user/.zshrc /root
+clear
+
+echo -e "${seta} ${blue}Copiando a pasta .oh-my-zsh para o diretório /root${end}"
+sleep 2s
+sudo cp -r /home/$user/.oh-my-zsh /root
+clear
+# ZSH ------------------------------------------------------------
 
 echo -e "${seta} ${blue}Instalando o gdm${end}"
 sleep 2s
