@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 # variaveis
+user='fabio'
+root='root'
 pass_user='cp1113bug6u'
 mirror='/etc/pacman.d/mirrorlist'
 blue='\e[34;1m'
@@ -29,57 +31,62 @@ clear
 
 # Definindo layout do teclado
 echo -e "${seta} ${blue}Definindo o layout do teclado${end}"
-loadkeys br-abnt2
 sleep 2s
+loadkeys br-abnt2
 clear
 
 # Atualizando o relógio do sistema
 echo -e "${seta} ${blue}Atualizando o relógio do sistema${end}"
-timedatectl set-ntp true
 sleep 2s
+timedatectl set-ntp true
 clear
 
 # Listando os discos
 echo -e "${seta} ${blue}Listando os discos${end}"
-lsblk -l | grep disk
 sleep 2s
+lsblk -l | grep disk
 echo ""
 
 # Informando o nome do seu disco
-echo -en "${seta} ${blue}Informe o nome do seu disco: ${end}"
+echo -en "${seta} ${blue}Informe o nome do seu disco:${end} "
 read disco
 disco=/dev/${disco}
 clear
 
-echo -en "${seta} ${blue}Digite${end} ${red}[ 1 ]${end} ${blue}para maquina maquina_virtual e${end} ${red}[ 2 ]${end} ${blue}para maquina maquina_real:${end} "
+echo -e "${seta} ${blue}Digite${end} ${red}[ 1 ]${end} ${blue}para maquina maquina virtual${end}${end}"
+echo -e "${seta} ${blue}Digite${end} ${red}[ 2 ]${end} ${blue}para maquina maquina real${end}"
+echo -en "${seta} ${yellow}Digite sua resposta:${end} "
 read resposta
 clear
 
 if [ "$resposta" -eq 1 ]; then
     echo -e "${seta} ${blue}Iniciando particionamento na maquina_virtual${end}"
-    maquina_virtual
     sleep 2s
+    maquina_virtual
     clear
 elif [ "$resposta" -eq 2 ]; then
     echo -e "${seta} ${blue}Iniciando particionamento na maquina_real${end}"
-    maquina_real
     sleep 2s
+    maquina_real
     clear
+else
+    echo -e "${seta} ${red}Resposta inválida!${end}"
+    exit 1
 fi
 
 # Formatando partições
 echo -e "${seta} ${blue}Formatando as partições${end}"
+sleep 2s
 mkfs.fat -F32 ${disco}1
 mkfs.ext4 ${disco}2
-sleep 2s
 clear
 
 # Montando partições
 echo -e "${seta} ${blue}Montando as partições${end}"
+sleep 2s
 mount ${disco}2 /mnt
 mkdir -p /mnt/boot
 mount ${disco}1 /mnt/boot
-sleep 2s
 clear
 
 # Listando partições
@@ -90,12 +97,15 @@ clear
 
 # Configurando mirrorlist
 echo -e "${seta} ${blue}Fazendo backup do mirrorlist${end}"
+sleep 2s
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 clear
+
 echo -e "${seta} ${blue}Comentando todos os servidores${end}"
 sleep 2s
 sed 's/^Ser/#Ser/' ${mirror} > ${mirror}.bkp
 clear
+
 echo -e "${seta} ${blue}Descomentando os servidores Brasileiros${end}"
 sleep 2s
 sed '/Brazil/{n;s/^#//}' ${mirror}.bkp > ${mirror}
@@ -104,20 +114,20 @@ clear
 
 # Atualizando os repositórios
 echo -e "${seta} ${blue}Atualizando os repositórios${end}"
-pacman -Syyy --noconfirm
 sleep 2s
+pacman -Syyy --noconfirm
 clear
 
 # Instalando os pacotes base
 echo -e "${seta} ${blue}Instalando os pacotes base${end}"
-pacstrap /mnt base base-devel linux linux-firmware
 sleep 2s
+pacstrap /mnt base base-devel linux linux-firmware
 clear
 
 # Gerando o fstab
 echo -e "${seta} ${blue}Gerando o fstab${end}"
-genfstab -U /mnt >> /mnt/etc/fstab
 sleep 2s
+genfstab -U /mnt >> /mnt/etc/fstab
 clear
 
 # Copiando o script archinstall-02.sh para /mnt

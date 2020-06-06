@@ -2,4 +2,3 @@
 Shell script para instalação do arch linux
 # deepin
 # deepin
-# gnome
