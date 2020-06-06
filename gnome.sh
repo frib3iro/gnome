@@ -68,7 +68,7 @@ clear
 
 echo -e "${seta} ${blue}Instalando pacotes necessários${end}"
 sleep 2s
-echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gufw htop libreoffice libreoffice-fresh-pt-br man-db neofetch pass powerline-fonts rsync tcpdump totem ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip xfce4-terminal youtube-dl --noconfirm
+echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gufw htop libreoffice libreoffice-fresh-pt-br man-db neofetch pass powerline-fonts rsync tcpdump totem ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl --noconfirm
 clear
 
 echo -e "${seta} ${blue}Instalando o yay${end}"
@@ -119,6 +119,11 @@ clear
 echo -e "${seta} ${blue}Instalando os${end} ${yellow}firmwares warnigs${end} ${blue}do archlinux${end}"
 sleep 2s
 yay -S aic94xx-firmware wd719x-firmware --noconfirm
+clear
+
+echo -e "${seta} ${blue}Instalando o gnome-terminal-transparency${end}"
+sleep 2s
+yay -S gnome-terminal-transparency --noconfirm
 clear
 
 echo -e "${seta} ${blue}Instalando o mint-icons${end}"
