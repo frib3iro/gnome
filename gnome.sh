@@ -30,7 +30,7 @@ iniciar_gdm(){
 
 # Tela de boas vindas
 clear
-echo -e "${seta} ${blue}Bem vindo a instalação do gnome 3!${end}"
+echo -e "${seta} ${blue}Bem vindo a instalação do gnome${end}"
 sleep 2s
 clear
 
@@ -78,6 +78,7 @@ cd yay
 makepkg -si --noconfirm
 clear
 
+# Virt-manager ----------------------------------------------------
 echo -e "${seta} ${blue}Instalando o virt-manager${end}"
 sleep 2s
 echo $pass_user | sudo -S pacman -S qemu virt-manager dnsmasq libvirt ebtables bridge-utils edk2-ovmf spice-vdagent --noconfirm
@@ -98,6 +99,7 @@ echo -e "${seta} ${blue}Configurando a rede do virt-manager para iniciar automá
 sleep 2s
 echo $pass_user | sudo -S virsh net-autostart --network default
 clear
+# Virt-manager ----------------------------------------------------
 
 echo -e "${seta} ${blue}Instalando o timeshift${end}"
 sleep 2s
@@ -146,11 +148,6 @@ sleep 2s
 yay -S spotify --noconfirm
 clear
 
-echo -e "${seta} ${blue}Instalando o xviewer${end}"
-sleep 2s
-yay -S xviewer xviewer-plugins --noconfirm
-clear
-
 echo -e "${seta} ${blue}Instalando as fontes${end}"
 sleep 2s
 yay -S ttf-ms-fonts --noconfirm
@@ -162,51 +159,6 @@ echo -e "${seta} ${blue}Iniciando o xdg-update${end}"
 sleep 2s
 xdg-user-dirs-update
 clear
-
-# ZSH ------------------------------------------------------------
-echo -e "${seta} ${blue}Baixando o zsh e o zsh-completions${end}"
-sleep 2s
-echo $pass_user | sudo -S pacman -S zsh zsh-completions
-clear
-
-echo -e "${seta} ${blue}Baixando o oh-my-zsh${end}"
-sleep 2s
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-clear
-
-echo -e "${seta} ${blue}Mudando o shell padrão pelo zsh${end}"
-sleep 2s
-echo $pass_user | sudo -S usermod --shell $(which zsh) $user
-echo $pass_user | sudo -S usermod --shell $(which zsh) $root
-clear
-
-echo -e "${seta} ${blue}Instalando o zsh-syntax-highlighting${end}"
-sleep 2s
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-clear
-
-echo -e "${seta} ${blue}Instalando o zsh-autosuggestions${end}"
-sleep 2s
-git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-clear
-
-echo -e "${seta} ${blue}Instalando o fuzzy finder (buscador de arquivos)${end}"
-echo -e "${seta} ${yellow}Lembre-se de responder${end} ${red}[ y ]${end} ${yellow}para as questões que serão feitas!${end}"
-sleep 3s
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
-clear
-
-echo -e "${seta} ${blue}Importar as configuracoes e temas do Oh My Zsh para o usuario root${end}\n"
-echo -e "${seta} ${blue}Copiando o arquivo .zshrc para o diretório /root${end}"
-sleep 2s
-sudo cp /home/$user/.zshrc /root
-clear
-
-echo -e "${seta} ${blue}Copiando a pasta .oh-my-zsh para o diretório /root${end}"
-sleep 2s
-sudo cp -r /home/$user/.oh-my-zsh /root
-clear
-# ZSH ------------------------------------------------------------
 
 echo -e "${seta} ${blue}Instalando o gdm${end}"
 sleep 2s
