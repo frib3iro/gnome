@@ -68,7 +68,7 @@ clear
 
 echo -e "${seta} ${blue}Instalando pacotes necessários${end}"
 sleep 2s
-echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion chrome-gnome-shell cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db neofetch pass powerline-fonts rsync tcpdump totem transmission-gtk ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl --noconfirm
+echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion chrome-gnome-shell cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db neofetch pass powerline-fonts rsync speedtest-cli tcpdump totem transmission-gtk ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl --noconfirm
 clear
 
 echo -e "${seta} ${blue}Instalando o yay${end}"
