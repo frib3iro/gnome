@@ -4,11 +4,11 @@
 user='fabio'
 root='root'
 pass_user='cp1113bug6u'
-blue='\e[34;1m'
-green='\e[32;1m'
-red='\e[31;1m'
-yellow='\e[33;1m'
-end='\e[m'
+az='\e[34;1m'
+vr='\e[32;1m'
+vm='\e[31;1m'
+am='\e[33;1m'
+fim='\e[m'
 seta='\e[32;1m==>\e[m'
 
 # Funções ------------------------------------------------------------
@@ -30,48 +30,53 @@ iniciar_gdm(){
 
 # Tela de boas vindas
 clear
-echo -e "${seta} ${blue}Bem vindo a instalação do gnome${end}"
+echo -e "${seta} ${az}Bem vindo a instalação do gnome${fim}"
 sleep 2s
 clear
 
 # Atualizando os espelhos
-echo -e "${seta} ${blue}Atualizando...${end}"
+echo -e "${seta} ${az}Atualizando...${fim}"
 sleep 2s
 echo $pass_user | sudo -S pacman -Syu --noconfirm
 clear
 
-echo -e "${seta} ${blue}Digite${end} ${red}[ 1 ]${end} ${blue}para instalar o driver virt-manager${end}"
-echo -e "${seta} ${blue}Digite${end} ${red}[ 2 ]${end} ${blue}para instalar o driver nvidia${end}"
-echo -en "${seta} ${yellow}Qual sua resposta:${end} "
+echo -e "${seta} ${az}Digite${fim} ${vm}[ 1 ]${fim} ${az}para instalar o driver virt-manager${fim}"
+echo -e "${seta} ${az}Digite${fim} ${vm}[ 2 ]${fim} ${az}para instalar o driver nvidia${fim}"
+echo -en "${seta} ${am}Qual sua resposta:${fim} "
 read resposta
 clear
 
 if [ "$resposta" -eq 1 ]; then
-    echo -e "${seta} ${blue}Iniciando instalação do driver para virt-manager${end}"
+    echo -e "${seta} ${az}Iniciando instalação do driver para virt-manager${fim}"
     sleep 2s
     driver_virtmanager
     clear
 elif [ "$resposta" -eq 2 ]; then
-    echo -e "${seta} ${blue}Iniciando instalação do driver para nvidia${end}"
+    echo -e "${seta} ${az}Iniciando instalação do driver para nvidia${fim}"
     sleep 2s
     driver_nvidia
     clear
 else
-    echo -e "${seta} ${red}Resposta inválida!${end}"
+    echo -e "${seta} ${vm}Resposta inválida!${fim}"
     exit 1
 fi
 
-echo -e "${seta} ${blue}Instalando o gnome 3${end}"
+echo -e "${seta} ${az}Instalando o gnome 3${fim}"
 sleep 2s
-echo $pass_user | sudo -S pacman -S gnome gnome-extra --noconfirm
+echo $pass_user | sudo -S pacman -S gnome --noconfirm
 clear
 
-echo -e "${seta} ${blue}Instalando pacotes necessários${end}"
+echo -e "${seta} ${az}Instalando pacotes necessários${fim}"
 sleep 2s
 echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion chrome-gnome-shell cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db neofetch pass powerline-fonts rsync speedtest-cli tcpdump totem transmission-gtk ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl --noconfirm
 clear
 
-echo -e "${seta} ${blue}Instalando o yay${end}"
+echo -e "${seta} ${vm}Desinstalando pacotes desnecessários${fim}"
+sleep 2s
+echo $pass_user | sudo -S pacman -R sudo pacman -R gnome-maps gnome-boxes gnome-books gnome-contacts gnome-music gnome-software
+clear
+
+echo -e "${seta} ${az}Instalando o yay${fim}"
 sleep 2s
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -79,98 +84,98 @@ makepkg -si --noconfirm
 clear
 
 # Virt-manager ----------------------------------------------------
-echo -e "${seta} ${blue}Instalando o virt-manager${end}"
+echo -e "${seta} ${az}Instalando o virt-manager${fim}"
 sleep 2s
 echo $pass_user | sudo -S pacman -S qemu virt-manager dnsmasq libvirt ebtables bridge-utils edk2-ovmf spice-vdagent --noconfirm
 clear
 
-echo -e "${seta} ${blue}Iniciando o daemon libvirt${end}"
+echo -e "${seta} ${az}Iniciando o daemon libvirt${fim}"
 sleep 2s
 echo $pass_user | sudo -S systemctl enable libvirtd.service
 echo $pass_user | sudo -S systemctl start libvirtd.service
 clear
 
-echo -e "${seta} ${blue}Inserindo o usuário no grupo libvirt${end}"
+echo -e "${seta} ${az}Inserindo o usuário no grupo libvirt${fim}"
 sleep 2s
 echo $pass_user | sudo -S usermod -aG libvirt $user
 clear
 
-echo -e "${seta} ${blue}Configurando a rede do virt-manager para iniciar automáticamente${end}"
+echo -e "${seta} ${az}Configurando a vme do virt-manager para iniciar automáticamente${fim}"
 sleep 2s
 echo $pass_user | sudo -S virsh net-autostart --network default
 clear
 # Virt-manager ----------------------------------------------------
 
-echo -e "${seta} ${blue}Instalando o timeshift${end}"
+echo -e "${seta} ${az}Instalando o timeshift${fim}"
 sleep 2s
 yay -S timeshift --noconfirm
 clear
 
-echo -e "${seta} ${blue}Instalando o woeusb-git${end}"
+echo -e "${seta} ${az}Instalando o lollypop-stable-git${fim}"
 sleep 2s
-yay -S woeusb-git --noconfirm
+yay -S lollypop-stable-git kid3-cli --noconfirm
 clear
 
 # Hackerman -------------------------------------------------------
-echo -e "${seta} ${blue}Instalando aircrack-ng e usbutils${end}"
+echo -e "${seta} ${az}Instalando aircrack-ng e usbutils${fim}"
 sleep 2s
 echo $pass_user | sudo -S pacman -S aircrack-ng usbutils --noconfirm
 clear
 
-echo -e "${seta} ${blue}Instalando o crunch${end}"
+echo -e "${seta} ${az}Instalando o crunch${fim}"
 sleep 2s
 yay -S crunch --noconfirm
 clear
 # Hackerman -------------------------------------------------------
 
-echo -e "${seta} ${blue}Instalando os${end} ${yellow}firmwares warnigs${end} ${blue}do archlinux${end}"
+echo -e "${seta} ${az}Instalando os${fim} ${am}firmwares warnigs${fim} ${az}do archlinux${fim}"
 sleep 2s
 yay -S aic94xx-firmware wd719x-firmware --noconfirm
 clear
 
-echo -e "${seta} ${blue}Instalando o gnome-terminal-transparency${end}"
+echo -e "${seta} ${az}Instalando o gnome-terminal-transparency${fim}"
 sleep 2s
 yay -S gnome-terminal-transparency --noconfirm
 clear
 
-echo -e "${seta} ${blue}Instalando o mint-icons${end}"
+echo -e "${seta} ${az}Instalando o mint-icons${fim}"
 sleep 2s
 yay -S mint-x-icons mint-y-icons --noconfirm
 clear
 
-echo -e "${seta} ${blue}Instalando o debtap${end}"
+echo -e "${seta} ${az}Instalando o debtap${fim}"
 sleep 2s
 yay -S debtap --noconfirm
 clear
 
-echo -e "${seta} ${blue}Instalando o google-chrome${end}"
+echo -e "${seta} ${az}Instalando o google-chrome${fim}"
 sleep 2s
 yay -S google-chrome --noconfirm
 clear
 
-echo -e "${seta} ${blue}Instalando spotify${end}"
+echo -e "${seta} ${az}Instalando spotify${fim}"
 sleep 2s
 yay -S spotify --noconfirm
 clear
 
-echo -e "${seta} ${blue}Instalando as fontes${end}"
+echo -e "${seta} ${az}Instalando as fontes${fim}"
 sleep 2s
 yay -S ttf-ms-fonts --noconfirm
 yay -S ttf-roboto --noconfirm
 yay -S ttf-ubuntu-font-family --noconfirm
 clear
 
-echo -e "${seta} ${blue}Iniciando o xdg-update${end}"
+echo -e "${seta} ${az}Iniciando o xdg-update${fim}"
 sleep 2s
 xdg-user-dirs-update
 clear
 
-echo -e "${seta} ${blue}Instalando o gdm${end}"
+echo -e "${seta} ${az}Instalando o gdm${fim}"
 sleep 2s
 instalar_gdm 
 clear
 
-echo -e "${seta} ${blue}Iniciando o serviço do gdm${end}"
+echo -e "${seta} ${az}Iniciando o serviço do gdm${fim}"
 sleep 2s
 iniciar_gdm
 clear
