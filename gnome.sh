@@ -68,12 +68,12 @@ clear
 
 echo -e "${seta} ${azl}Instalando pacotes necessários${fim}"
 sleep 2s
-echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion chrome-gnome-shell cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db neofetch pass powerline-fonts rsync speedtest-cli tcpdump totem transmission-gtk ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl --noconfirm
+echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion chrome-gnome-shell cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db neofetch pass powerline-fonts rsync speedtest-cli totem transmission-gtk ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl --noconfirm
 clear
 
 echo -e "${seta} ${vrm}Desinstalando pacotes desnecessários${fim}"
 sleep 2s
-echo $pass_user | sudo -S pacman -R gnome-maps gnome-boxes gnome-books gnome-contacts gnome-music gnome-software
+echo $pass_user | sudo -S pacman -R gnome-maps gnome-boxes gnome-books gnome-contacts gnome-music gnome-software gnome-terminal
 clear
 
 echo -e "${seta} ${azl}Instalando o yay${fim}"
@@ -119,7 +119,7 @@ clear
 # Hackerman -------------------------------------------------------
 echo -e "${seta} ${azl}Instalando aircrack-ng e usbutils${fim}"
 sleep 2s
-echo $pass_user | sudo -S pacman -S aircrack-ng usbutils --noconfirm
+echo $pass_user | sudo -S pacman -S aircrack-ng usbutils tcpdump --noconfirm
 clear
 
 echo -e "${seta} ${azl}Instalando o crunch${fim}"
@@ -140,7 +140,7 @@ clear
 
 echo -e "${seta} ${azl}Instalando o mint-icons${fim}"
 sleep 2s
-yay -S mint-x-icons mint-y-icons --noconfirm
+yay -S mint-y-icons --noconfirm
 clear
 
 echo -e "${seta} ${azl}Instalando o debtap${fim}"
@@ -178,4 +178,3 @@ clear
 echo -e "${seta} ${azl}Iniciando o serviço do gdm${fim}"
 sleep 2s
 iniciar_gdm
-clear
