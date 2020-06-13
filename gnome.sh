@@ -28,6 +28,10 @@ iniciar_gdm(){
     echo $pass_user | sudo -S systemctl start gdm
 }
 
+iniciar_bluez(){
+    echo $pass_user | sudo -S systemctl enable bluetooth
+    echo $pass_user | sudo -S systemctl start bluetooth
+}
 # Tela de boas vindas
 clear
 echo -e "${seta} ${azl}Bem vindo a instalação do gnome${fim}"
@@ -68,8 +72,10 @@ clear
 
 echo -e "${seta} ${azl}Instalando pacotes necessários${fim}"
 sleep 2s
-echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db neofetch pass powerline-fonts rsync speedtest-cli totem transmission-gtk ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl lolcat --noconfirm
+echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils blueman chrome-gnome-shell cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db neofetch pass powerline-fonts rsync speedtest-cli totem transmission-gtk ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl lolcat --noconfirm
 clear
+
+
 
 echo -e "${seta} ${vrm}Desinstalando pacotes desnecessários${fim}"
 sleep 2s
@@ -165,6 +171,11 @@ sleep 2s
 yay -S ttf-ms-fonts --noconfirm
 yay -S ttf-roboto --noconfirm
 yay -S ttf-ubuntu-font-family --noconfirm
+clear
+
+echo -e "${seta} ${azl}Iniciando o bluez${fim}"
+sleep 2s
+iniciar_bluez
 clear
 
 echo -e "${seta} ${azl}Iniciando o xdg-update${fim}"
