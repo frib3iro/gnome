@@ -3,7 +3,7 @@
 # variaveis
 user='fabio'
 root='root'
-pass_user='cp1113bug6u'
+pass_user='123'
 azl='\e[34;1m'
 vrd='\e[32;1m'
 vrm='\e[31;1m'
@@ -23,6 +23,7 @@ driver_nvidia(){
 instalar_gdm(){
     echo $pass_user | sudo -S pacman -S gdm --noconfirm
 }
+
 iniciar_gdm(){
     echo $pass_user | sudo -S systemctl enable gdm
     echo $pass_user | sudo -S systemctl start gdm
@@ -32,6 +33,7 @@ iniciar_bluez(){
     echo $pass_user | sudo -S systemctl enable bluetooth
     echo $pass_user | sudo -S systemctl start bluetooth
 }
+
 # Tela de boas vindas
 clear
 echo -e "${seta} ${azl}Bem vindo a instalação do gnome${fim}"
@@ -65,23 +67,19 @@ else
     exit 1
 fi
 
-echo -e "${seta} ${azl}Instalando o gnome 3${fim}"
+echo -e "${seta} ${azl}Instalando o gnome${fim}"
 sleep 2s
 echo $pass_user | sudo -S pacman -S gnome --noconfirm
 clear
 
 echo -e "${seta} ${azl}Instalando pacotes necessários${fim}"
 sleep 2s
-echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils blueman chrome-gnome-shell cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db neofetch pass powerline-fonts rsync speedtest-cli totem transmission-gtk ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl lolcat --noconfirm
+echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db neofetch pass powerline-fonts rsync speedtest-cli totem transmission-gtk ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl lolcat --noconfirm
 clear
-
-
 
 echo -e "${seta} ${vrm}Desinstalando pacotes desnecessários${fim}"
 sleep 2s
 echo $pass_user | sudo -S pacman -R gnome-maps gnome-boxes gnome-books gnome-contacts gnome-music gnome-software gnome-terminal --noconfirm
-echo -e "\n${seta} ${amr}Aperte enter para continuar${fim}"
-read
 clear
 
 echo -e "${seta} ${azl}Instalando o yay${fim}"
