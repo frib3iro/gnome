@@ -17,7 +17,8 @@ driver_virtmanager(){
 }
 
 driver_nvidia(){
-    echo $pass_user | sudo -S pacman -S nvidia nvidia-utils intel-ucode --noconfirm
+    echo -e "${seta} ${vrm}O driver da nvidia está em manutenção!${fim}"
+    # echo $pass_user | sudo -S pacman -S nvidia nvidia-utils intel-ucode --noconfirm
 }
 
 instalar_gdm(){
@@ -30,6 +31,7 @@ iniciar_gdm(){
 }
 
 iniciar_bluez(){
+    echo $pass_user | sudo -S systemctl status bluetooth
     echo $pass_user | sudo -S systemctl enable bluetooth
     echo $pass_user | sudo -S systemctl start bluetooth
 }
@@ -74,6 +76,7 @@ clear
 
 echo -e "${seta} ${azl}Instalando pacotes necessários${fim}"
 sleep 2s
+
 echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db neofetch pass powerline-fonts rsync speedtest-cli totem transmission-gtk ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl lolcat --noconfirm
 clear
 
@@ -87,6 +90,15 @@ sleep 2s
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
+clear
+
+# Gedit -----------------------------------------------------------
+echo -e "${seta} ${azl}Instalando o gedit com tema dracula${fim}"
+sleep 2s
+echo $pass_user | sudo -S pacman -S gedit
+wget https://raw.githubusercontent.com/dracula/gedit/master/dracula.xml
+mkdir -p $HOME/.local/share/gedit/styles
+mv dracula.xml $HOME/.local/share/gedit/styles/
 clear
 
 # Virt-manager ----------------------------------------------------
