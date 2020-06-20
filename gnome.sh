@@ -17,6 +17,7 @@ driver_virtmanager(){
 }
 
 driver_nvidia(){
+    clear
     echo -e "${seta} ${vrm}O driver da nvidia está em manutenção!${fim}"
     sleep 3s
     clear
