@@ -157,6 +157,9 @@ clear
 echo -e "${seta} ${azl}Instalando o gnome-terminal-transparency${fim}"
 sleep 2s
 yay -S gnome-terminal-transparency --noconfirm
+git clone https://github.com/dracula/gnome-terminal
+cd gnome-terminal
+./install.sh
 clear
 
 echo -e "${seta} ${azl}Instalando o mint-icons${fim}"
