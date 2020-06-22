@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 # variaveis
-user='fabio'
-root='root'
 pass_user='123'
 azl='\e[34;1m'
 vrd='\e[32;1m'
@@ -19,9 +17,9 @@ driver_virtmanager(){
 driver_nvidia(){
     clear
     echo -e "${seta} ${vrm}O driver da nvidia está em manutenção!${fim}"
+    # echo $pass_user | sudo -S pacman -S nvidia nvidia-utils intel-ucode --noconfirm
     sleep 3s
     clear
-    # echo $pass_user | sudo -S pacman -S nvidia nvidia-utils intel-ucode --noconfirm
 }
 
 instalar_gdm(){
@@ -157,9 +155,9 @@ clear
 echo -e "${seta} ${azl}Instalando o gnome-terminal-transparency${fim}"
 sleep 2s
 yay -S gnome-terminal-transparency --noconfirm
-git clone https://github.com/dracula/gnome-terminal
-cd gnome-terminal
-./install.sh
+#git clone https://github.com/dracula/gnome-terminal
+#cd gnome-terminal
+#./install.sh
 clear
 
 echo -e "${seta} ${azl}Instalando o mint-icons${fim}"
@@ -207,3 +205,4 @@ clear
 echo -e "${seta} ${azl}Iniciando o serviço do gdm${fim}"
 sleep 2s
 iniciar_gdm
+
