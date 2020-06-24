@@ -83,7 +83,7 @@ clear
 
 echo -e "${seta} ${vrm}Desinstalando pacotes desnecessários${fim}"
 sleep 2s
-echo $pass_user | sudo -S pacman -R malcontent gnome-maps gnome-boxes gnome-books gnome-contacts gnome-music gnome-software gnome-terminal --noconfirm
+echo $pass_user | sudo -S pacman -R epiphany malcontent gnome-maps gnome-boxes gnome-books gnome-contacts gnome-music gnome-software gnome-terminal --noconfirm
 clear
 
 echo -e "${seta} ${azl}Instalando o yay${fim}"
