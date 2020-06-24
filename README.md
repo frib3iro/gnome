@@ -1,4 +1,2 @@
-# git
-Shell script para instalação do arch linux
-# deepin
-# deepin
+# gnome
+Shell script para instalação do gnome no arch linux
