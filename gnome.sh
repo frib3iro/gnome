@@ -146,6 +146,12 @@ yay -S gnome-terminal-transparency --noconfirm
 #./install.sh
 clear
 
+# Cava -------------------------------------------------------------------
+echo -e "${seta} ${azl}Instalando o cava${fim}"
+sleep 2s
+yay -S cava --noconfirm
+clear
+
 # Chess -----------------------------------------------------------------
 echo -e "${seta} ${azl}Instalando o Stockfish e Pychess${fim}"
 sleep 2s
