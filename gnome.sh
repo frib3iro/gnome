@@ -146,6 +146,12 @@ yay -S gnome-terminal-transparency --noconfirm
 #./install.sh
 clear
 
+# Chess -----------------------------------------------------------------
+echo -e "${seta} ${azl}Instalando o Stockfish e Pychess${fim}"
+sleep 2s
+yay -S stockfish pychess --noconfirm
+clear
+
 # Mint-icons ------------------------------------------------------------
 echo -e "${seta} ${azl}Instalando o mint-icons${fim}"
 sleep 2s
