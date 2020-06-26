@@ -70,7 +70,7 @@ fi
 # Instalando pacotes ----------------------------------------------------
 echo -e "${seta} ${azl}Instalando pacotes necessários${fim}"
 sleep 2s
-echo $pass_user | sudo -S pacman -S gnome gedit archlinux-keyring os-prober mtools dosfstools archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie dialog gimp gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db neofetch pass powerline-fonts rsync speedtest-cli totem transmission-gtk ttf-hack gnu-free-fonts ttf-dejavu ttf-nerd-fonts-symbols ufw unrar xdg-user-dirs xdg-utils xf86-input-synaptics xcursor-vanilla-dmz-aa xclip youtube-dl lolcat --noconfirm
+echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie dialog dosfstools gedit gimp gnome gnome-keyring gnome-tweaks gnu-free-fonts gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db mtools neofetch os-prober pass powerline-fonts rsync speedtest-cli totem transmission-gtk ttf-dejavu  ttf-hack ttf-nerd-fonts-symbols ufw unrar xclip xcursor-vanilla-dmz-aa xdg-user-dirs xdg-utils xf86-input-synaptics youtube-dl --noconfirm
 clear
 
 # Desinstalando pacotes -------------------------------------------------
