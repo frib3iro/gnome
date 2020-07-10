@@ -89,27 +89,27 @@ cd yay
 makepkg -si --noconfirm
 clear
 
-## Virt-manager ----------------------------------------------------------
+## Virt-manager ------------------------------------------------------------
 echo -e "${seta} ${azul}Instalando o virt-manager${fim}"
 sleep 2s
 echo $pass_user | sudo -S pacman -S qemu virt-manager dnsmasq libvirt ebtables bridge-utils ovmf spice-vdagent --noconfirm
 clear
 
-## Texto -------------------------------------------------------------------
+## Iniciando o daemon libvirt -----------------------------------------------
 echo -e "${seta} ${azul}Iniciando o daemon libvirt${fim}"
 sleep 2s
 echo $pass_user | sudo -S systemctl enable libvirtd.service
 echo $pass_user | sudo -S systemctl start libvirtd.service
 clear
 
-## Texto -------------------------------------------------------------------
+## Inserindo o usuário no grupo libvirt -------------------------------------
 echo -e "${seta} ${azul}Inserindo o usuário no grupo libvirt${fim}"
 sleep 2s
 echo $pass_user | sudo -S usermod -aG libvirt $user
 clear
 
 ## Texto -------------------------------------------------------------------
-echo -e "${seta} ${azul}Configurando a vermelhoe do virt-manager para iniciar automáticamente${fim}"
+echo -e "${seta} ${azul}Configurando o virt-manager para iniciar automáticamente${fim}"
 sleep 2s
 echo $pass_user | sudo -S virsh net-autostart --network default
 clear
@@ -138,14 +138,14 @@ sleep 2s
 echo $pass_user | sudo -S pacman -S aircrack-ng usbutils tcpdump --noconfirm
 clear
 
-## Texto -------------------------------------------------------------------
+## Instalando o crunch ---------------------------------------------------
 echo -e "${seta} ${azul}Instalando o crunch${fim}"
 sleep 2s
 yay -S crunch --noconfirm
 clear
 
 ## Firmwares -------------------------------------------------------------
-echo -e "${seta} ${azul}Instalando os${fim} ${amarelo}firmwares warnigs${fim} ${azl}do archlinux${fim}"
+echo -e "${seta} ${azul}Instalando os${fim} ${amarelo}firmwares warnigs${fim} ${azul}do archlinux${fim}"
 sleep 2s
 yay -S aic94xx-firmware wd719x-firmware --noconfirm
 clear
@@ -154,9 +154,6 @@ clear
 echo -e "${seta} ${azul}Instalando o gnome-terminal-transparency${fim}"
 sleep 2s
 yay -S gnome-terminal-transparency --noconfirm
-##git clone https://github.com/dracula/gnome-terminal
-##cd gnome-terminal
-##./install.sh
 clear
 
 ## Cava -------------------------------------------------------------------
@@ -165,7 +162,7 @@ sleep 2s
 yay -S cava --noconfirm
 clear
 
-## Chess -----------------------------------------------------------------
+## Instalando o Stockfish e Pychess ---------------------------------------
 echo -e "${seta} ${azul}Instalando o Stockfish e Pychess${fim}"
 sleep 2s
 yay -S stockfish pychess --noconfirm
