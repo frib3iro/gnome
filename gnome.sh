@@ -120,6 +120,12 @@ sleep 2s
 yay -S timeshift --noconfirm
 clear
 
+## Ventoy-bin ------------------------------------------------------------
+echo -e "${seta} ${azul}Instalando o ventoy-bin${fim}"
+sleep 2s
+yay -S ventoy-bin --noconfirm
+clear
+
 ## Minecraft ------------------------------------------------------------
 echo -e "${seta} ${azul}Instalando o minecraft${fim}"
 sleep 2s
