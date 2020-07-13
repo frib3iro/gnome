@@ -158,6 +158,12 @@ sleep 2s
 yay -S stockfish pychess --noconfirm
 clear
 
+# minecraft-launcher ----------------------------------------------------
+echo -e "${seta} ${azul}Instalando o minecraft-launcher${fim}"
+sleep 2s
+yay -S minecraft-launcher --noconfirm
+clear
+
 # Mint-icons ------------------------------------------------------------
 echo -e "${seta} ${azul}Instalando o mint-icons${fim}"
 sleep 2s
