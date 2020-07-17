@@ -70,7 +70,7 @@ fi
 # Instalando pacotes ----------------------------------------------------
 echo -e "${seta} ${azul}Instalando pacotes necessários${fim}"
 sleep 2s
-echo $pass_user | sudo -S pacman -S archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie dialog dosfstools gedit gimp gnome gnome-keyring gnome-tweaks gnu-free-fonts gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db mtools neofetch os-prober pass powerline-fonts rsync speedtest-cli totem transmission-gtk ttf-dejavu  ttf-hack ttf-nerd-fonts-symbols ufw unrar xclip xcursor-vanilla-dmz-aa xdg-user-dirs xdg-utils xf86-input-synaptics youtube-dl --noconfirm
+echo $pass_user | sudo -S pacman -S grub-customizer archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie dialog dosfstools gedit gimp gnome gnome-keyring gnome-tweaks gnu-free-fonts gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db mtools neofetch os-prober pass powerline-fonts rsync speedtest-cli totem transmission-gtk ttf-dejavu  ttf-hack ttf-nerd-fonts-symbols ufw unrar xclip xcursor-vanilla-dmz-aa xdg-user-dirs xdg-utils xf86-input-synaptics youtube-dl --noconfirm
 clear
 
 # Desinstalando pacotes -------------------------------------------------
@@ -150,6 +150,12 @@ clear
 echo -e "${seta} ${azul}Instalando o cava${fim}"
 sleep 2s
 yay -S cava --noconfirm
+clear
+
+# Ventoy -------------------------------------------------------------------
+echo -e "${seta} ${azul}Instalando o ventoy${fim}"
+sleep 2s
+yay -S ventoy-bin --noconfirm
 clear
 
 # Chess -----------------------------------------------------------------
