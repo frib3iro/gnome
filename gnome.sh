@@ -2,10 +2,10 @@
 
 # variaveis e password
 pass_user='123'
-azul='\033[0;34m'
-verde="\033[0;32m"
 vermelho='\033[0;31m'
-amarelo='\033[0;32m'
+verde='\033[0;32m'
+amarelo='\033[0;33m'
+azul='\033[0;34m'
 fim='\033[0m'
 seta='\e[32;1m-->\e[m'
 
@@ -46,8 +46,8 @@ sleep 2s
 echo $pass_user | sudo -S pacman -Syu --noconfirm
 clear
 
-echo -e "${seta} ${azul}Digite${fim} ${vermelho}[ 1 ]${fim} ${azl}para instalar o driver virt-manager${fim}"
-echo -e "${seta} ${azul}Digite${fim} ${vermelho}[ 2 ]${fim} ${azl}para instalar o driver nvidia${fim}"
+echo -e "${seta} ${azul}Digite${fim} ${vermelho}[ 1 ]${fim} ${azul}para instalar o driver virt-manager${fim}"
+echo -e "${seta} ${azul}Digite${fim} ${vermelho}[ 2 ]${fim} ${azul}para instalar o driver nvidia${fim}"
 echo -en "\n${seta} ${amarelo}Qual sua resposta:${fim} "
 read resposta
 clear
@@ -104,7 +104,7 @@ sleep 2s
 echo $pass_user | sudo -S usermod -aG libvirt $user
 clear
 
-echo -e "${seta} ${azul}Configurando a vermelhoe do virt-manager para iniciar automáticamente${fim}"
+echo -e "${seta} ${azul}Configurando a network do virt-manager para iniciar automáticamente${fim}"
 sleep 2s
 echo $pass_user | sudo -S virsh net-autostart --network default
 clear
@@ -115,6 +115,7 @@ sleep 2s
 yay -S timeshift --noconfirm
 clear
 
+# lollypop-stable-git --------------------------------------------------
 echo -e "${seta} ${azul}Instalando o lollypop-stable-git${fim}"
 sleep 2s
 yay -S lollypop-stable-git kid3-cli --noconfirm
@@ -132,7 +133,7 @@ yay -S crunch --noconfirm
 clear
 
 # Firmwares -------------------------------------------------------------
-echo -e "${seta} ${azul}Instalando os${fim} ${amarelo}firmwares warnigs${fim} ${azl}do archlinux${fim}"
+echo -e "${seta} ${azul}Instalando os${fim} ${amarelo}firmwares warnigs${fim} ${azul}do archlinux${fim}"
 sleep 2s
 yay -S aic94xx-firmware wd719x-firmware --noconfirm
 clear
@@ -141,9 +142,6 @@ clear
 echo -e "${seta} ${azul}Instalando o gnome-terminal-transparency${fim}"
 sleep 2s
 yay -S gnome-terminal-transparency --noconfirm
-#git clone https://github.com/dracula/gnome-terminal
-#cd gnome-terminal
-#./install.sh
 clear
 
 # Cava -------------------------------------------------------------------
@@ -174,6 +172,18 @@ clear
 echo -e "${seta} ${azul}Instalando o mint-icons${fim}"
 sleep 2s
 yay -S mint-y-icons --noconfirm
+clear
+
+# Sardi-icons ------------------------------------------------------------
+echo -e "${seta} ${azul}Instalando o sardi-icons${fim}"
+sleep 2s
+yay -S sardi-icons --noconfirm
+clear
+
+# Ant-dracula-theme-git ------------------------------------------------------------
+echo -e "${seta} ${azul}Instalando o ant-dracula-theme-git${fim}"
+sleep 2s
+yay -S ant-dracula-theme-git --noconfirm
 clear
 
 # Debtap ----------------------------------------------------------------
