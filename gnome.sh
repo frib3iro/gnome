@@ -70,7 +70,13 @@ fi
 # Instalando pacotes ----------------------------------------------------
 echo -e "${seta} ${azul}Instalando pacotes necessários${fim}"
 sleep 2s
-echo $pass_user | sudo -S pacman -S grub-customizer archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie dialog dosfstools gedit gimp gnome gnome-keyring gnome-tweaks gnu-free-fonts gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db mtools neofetch os-prober pass powerline-fonts rsync speedtest-cli totem transmission-gtk ttf-dejavu  ttf-hack ttf-nerd-fonts-symbols ufw unrar xclip xcursor-vanilla-dmz-aa xdg-user-dirs xdg-utils xf86-input-synaptics youtube-dl --noconfirm
+echo $pass_user | sudo -S pacman -S grub-customizer archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie dialog dosfstools gedit gimp gnome gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db mtools neofetch os-prober pass rsync speedtest-cli totem transmission-gtk ufw unrar xclip xcursor-vanilla-dmz-aa xdg-user-dirs xdg-utils xf86-input-synaptics youtube-dl --noconfirm
+clear
+
+# Fontes ----------------------------------------------------------------
+echo -e "${seta} ${azul}Instalando as fontes${fim}"
+sleep 2s
+echo $pass_user | sudo -S pacman -S ttf-jetbrains-mono ttf-dejavu powerline-fonts ttf-hack ttf-nerd-fonts-symbols gnu-free-fonts --noconfirm
 clear
 
 # Desinstalando pacotes -------------------------------------------------
