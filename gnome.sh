@@ -95,6 +95,12 @@ cd yay
 makepkg -si --noconfirm
 clear
 
+# Mintstick ---------------------------------------------------------------
+echo -e "${seta} ${ciano}Instalando o Mintstick${fim}"
+sleep 2s
+yay -S mintstick --noconfirm
+clear
+
 # Downgrade---------------------------------------------------------------
 echo -e "${seta} ${ciano}Instalando o downgrade${fim}"
 sleep 2s
