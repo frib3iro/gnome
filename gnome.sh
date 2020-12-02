@@ -72,7 +72,7 @@ fi
 # Instalando pacotes ----------------------------------------------------
 echo -e "${seta} ${ciano}Instalando pacotes necessários${fim}"
 sleep 2s
-echo $pass_user | sudo -S pacman -S arch-wiki-docs arch-wiki-lite alsa-utils grub-customizer archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie cups dialog dosfstools efibootmgr git gedit gimp gnome gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db man-pages-pt_br mtools neofetch os-prober pass rsync speedtest-cli totem ufw unrar xclip xcursor-vanilla-dmz-aa xdg-user-dirs xdg-utils xf86-input-synaptics youtube-dl pulseaudio pulseaudio-bluetooth vim xfce4-terminal wget --noconfirm
+echo $pass_user | sudo -S pacman -S arch-wiki-docs arch-wiki-lite alsa-utils dconf-editor gnome-multi-writer gnome-sound-recorder grub-customizer archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie cups dialog dosfstools efibootmgr git gedit gimp gnome gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db man-pages-pt_br mesa-demos mtools neofetch os-prober pass rsync speedtest-cli totem ufw unrar xclip xcursor-vanilla-dmz-aa xdg-user-dirs xdg-utils xf86-input-synaptics youtube-dl pulseaudio pulseaudio-bluetooth --noconfirm
 clear
 
 # Fontes ----------------------------------------------------------------
@@ -198,12 +198,6 @@ clear
 echo -e "${seta} ${ciano}Instalando o debtap${fim}"
 sleep 2s
 yay -S debtap --noconfirm
-clear
-
-# Glxinfo ----------------------------------------------------------------
-echo -e "${seta} ${ciano}Instalando o glxinfo${fim}"
-sleep 2s
-yay -S glxinfo --noconfirm
 clear
 
 # Google-chrome ---------------------------------------------------------
