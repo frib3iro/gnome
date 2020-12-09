@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
 
-# variaveis e password
-pass_user='123'
-vermelho='\033[0;31m'
-verde='\033[0;32m'
-amarelo='\033[0;33m'
-ciano='\033[0;36m'
-fim='\033[0m'
-seta='\e[32;1m-->\e[m'
+clear
+source variaveis.sh
 
 # Funções ------------------------------------------------------------
 virtmanager(){
@@ -17,7 +11,9 @@ virtmanager(){
 nvidia(){
     clear
     echo -e "${seta} ${ciano}Instalando o driver da nvidia${fim}"
-    echo $pass_user | sudo -S pacman -S nvidia nvidia-utils intel-ucode --noconfirm
+    echo $pass_user | sudo -S pacman -S nvidia-utils nvidia-settings intel-ucode --noconfirm
+    echo -e "${seta} ${ciano}Wayland e o driver proprietário da NVIDIA${fim}"
+    echo $pass_user | sudo -S  ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
     sleep 3s
     clear
 }
