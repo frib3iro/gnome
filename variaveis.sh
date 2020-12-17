@@ -16,14 +16,14 @@ user='fabio'
 pass_user='123'
 
 # Cores usadas no script
-ciano='\033[0;36m'
-verde='\033[0;32m'
-vermelho='\033[0;31m'
-amarelo='\033[0;32m'
+C='\033[0;36m'
+G='\033[0;32m'
+R='\033[0;31m'
+Y='\033[0;32m'
 
 # Fechamento das cores no script
-fim='\033[0m'
+F='\033[0m'
 
 # Seta utilizada no inicio das frases
-seta='\e[32;1m>>> \e[m'
+S='\e[32;1m>>> \e[m'
 
