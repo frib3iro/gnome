@@ -104,12 +104,6 @@ echo
 echo -e "${S} ${C}Atualizando...${F}"
 echo $pass_user | sudo -S pacman -Syu --noconfirm
 
-# Instalando gnome
-echo
-echo -e "${S} ${C}Instalando gnome${F}"
-echo $pass_user | sudo -S pacman -S gnome --noconfirm
-echo "^4 ^10 ^16 ^24 ^26 ^36 ^65"
-
 # Instalando pacotes
 echo
 echo -e "${S} ${C}Instalando pacotes necessários${F}"
