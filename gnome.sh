@@ -29,7 +29,7 @@ VirtManagerDriver(){
 
 NvidiaDriver(){
     echo $pass_user | sudo -S pacman -S nvidia nvidia-utils nvidia-settings --noconfirm
-    echo -e "${S}${C}Resolvendo o problema do Wayland e o driver proprietário da NVIDIA...${F}"
+    echo -e "${S} ${C}Resolvendo o problema do Wayland e o driver proprietário da NVIDIA...${F}"
     echo $pass_user | sudo -S ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
 }
 
@@ -45,53 +45,53 @@ GnomeDisplayManager (){
 }
 
 TemaDraculaGedit(){
-    echo -e "${S}${C}Baixando o tema Dracula para o gedit${F}"
+    echo -e "${S} ${C}Baixando o tema Dracula para o gedit${F}"
     wget https://raw.githubusercontent.com/dracula/gedit/master/dracula.xml
-    echo -e "${S}${C}Verificando se o diretório styles existe${F}"
+    echo -e "${S} ${C}Verificando se o diretório styles existe${F}"
 
     if [ -d "/home/fabio/.local/share/gedit/styles" ]
     then
-        echo -e "${S}${Y}O diretório styles existe, apenas movendo o tema${F}"
+        echo -e "${S} ${Y}O diretório styles existe, apenas movendo o tema${F}"
         sleep 2
         mv dracula.xml /home/fabio/.local/share/gedit/styles/
     else
-        echo -e "${S}${Y}Criando o diretório styles e movendo o tema${F}"
+        echo -e "${S} ${Y}Criando o diretório styles e movendo o tema${F}"
         sleep 2
         mkdir -p /home/fabio/.local/share/gedit/styles
         mv dracula.xml /home/fabio/.local/share/gedit/styles/
     fi
-    echo -e "${S}${G}Tema instalado com sucesso!${F}"
+    echo -e "${S} ${G}Tema instalado com sucesso!${F}"
 }
 
 VirtManager(){
-    echo -e "${S}${C}Instalando o virt-manager${F}"
+    echo -e "${S} ${C}Instalando o virt-manager${F}"
     sudo pacman -S qemu qemu-arch-extra virt-manager ovmf bridge-utils dnsmasq vde2 bridge-utils \
         openbsd-netcat ebtables iptables --noconfirm
 
-    echo -e "${S}${C}Instalando o libguestfs${F}"
+    echo -e "${S} ${C}Instalando o libguestfs${F}"
     yay -S libguestfs --noconfirm
 
-    echo -e "${S}${C}Inicializando o serviço libvirt${F}"
+    echo -e "${S} ${C}Inicializando o serviço libvirt${F}"
     sudo systemctl enable libvirtd.service
     sudo systemctl start libvirtd.service
 
-    echo -e "${S}${C}Habilitando o grupo libvirt para unix_sock_group${F}"
+    echo -e "${S} ${C}Habilitando o grupo libvirt para unix_sock_group${F}"
     sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/' /etc/libvirt/libvirtd.conf
 
-    echo -e "${S}${C}Habilitando leitura e escrita para o grupo libvirt${F}"
+    echo -e "${S} ${C}Habilitando leitura e escrita para o grupo libvirt${F}"
     sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/' /etc/libvirt/libvirtd.conf
 
-    echo -e "${S}${C}Adicionando o usuário ao grupo libvirt${F}"
+    echo -e "${S} ${C}Adicionando o usuário ao grupo libvirt${F}"
     sudo usermod -a -G libvirt $(whoami)
 
-    echo -e "${S}${C}Reinicializando o serviço${F}"
+    echo -e "${S} ${C}Reinicializando o serviço${F}"
     sudo systemctl restart libvirtd.service
 
-    echo -e "${S}${C}Configurando o libvirt para inicializar automaticamente o serviço de rede${F}"
+    echo -e "${S} ${C}Configurando o libvirt para inicializar automaticamente o serviço de rede${F}"
     sudo virsh net-start default
     sudo virsh net-autostart --network default
     echo
-    echo -e "${S}${G}instalação do virt-manager concluída!${F}"
+    echo -e "${S} ${G}instalação do virt-manager concluída!${F}"
 }
 
 #----------------------------------------------------------------------
@@ -103,6 +103,12 @@ echo -e "${S} ${C}Bem vindo a instalação do gnome${F}"
 echo
 echo -e "${S} ${C}Atualizando...${F}"
 echo $pass_user | sudo -S pacman -Syu --noconfirm
+
+# Instalando gnome
+echo
+echo -e "${S} ${C}Instalando gnome${F}"
+echo $pass_user | sudo -S pacman -S gnome --noconfirm
+echo "^4 ^10 ^16 ^24 ^26 ^36 ^65"
 
 # Instalando pacotes
 echo
@@ -197,32 +203,32 @@ yay -S ttf-ubuntu-font-family --noconfirm
 
 # Tema dracula no gedit
 echo
-echo -e "${S}${C}Baixando e instalando o tema Dracula no gedit${F}"
+echo -e "${S} ${C}Baixando e instalando o tema Dracula no gedit${F}"
 TemaDraculaGedit
 
 # Menu para escolha do driver de vídeo
 echo
-echo -e "${S}${C}Instalando Drivers de Vídeo${F}"
+echo -e "${S} ${C}Instalando Drivers de Vídeo${F}"
 echo
-echo -e "${S}${C}[ 1 ] Instalar drivers Nvidia${F}"
-echo -e "${S}${C}[ 2 ] Instalar driver VirtManager${F}"
+echo -e "${S} ${C}[ 1 ] Instalar drivers Nvidia${F}"
+echo -e "${S} ${C}[ 2 ] Instalar driver VirtManager${F}"
 echo
-echo -en "${S}${Y}Digite a opção desejada: ${F}"
+echo -en "${S} ${Y}Digite a opção desejada: ${F}"
 read opcao
 case $opcao in
     1)
         echo
-        echo -e "${S}${C}Instalando o driver de vídeo da nvidia...${F}"
+        echo -e "${S} ${C}Instalando o driver de vídeo da nvidia...${F}"
         NvidiaDriver
         ;;
     2)
-        echo -e "${S}${C}Instalando o driver de vídeo do virt-manager...${F}"
+        echo -e "${S} ${C}Instalando o driver de vídeo do virt-manager...${F}"
         echo
         VirtManagerDriver
         ;;
     *)
         echo
-        echo "${S}${R}O sistema será instalado sem os drivers!${F}"
+        echo "${S} ${R}O sistema será instalado sem os drivers!${F}"
 esac
 
 # Instalando o virt-manager
@@ -231,15 +237,16 @@ VirtManager
 
 # xdg-user-dirs
 echo
-echo -e "${S}${C}Iniciando o xdg-update${F}"
+echo -e "${S} ${C}Iniciando o xdg-update${F}"
 xdg-user-dirs-update
 
 # Bluez
 echo
-echo -e "${S}${C}Iniciando o bluez${F}"
+echo -e "${S} ${C}Iniciando o bluez${F}"
 Bluez
 
 # Gnome Display Manager
 echo
-echo -e "${S}${C}Instalando o Gnome Display Manager${F}"
+echo -e "${S} ${C}Instalando o Gnome Display Manager${F}"
 GnomeDisplayManager
+
