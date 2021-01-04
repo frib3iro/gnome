@@ -104,15 +104,15 @@ echo
 echo -e "${S} ${C}Atualizando...${F}"
 echo $pass_user | sudo -S pacman -Syu --noconfirm
 
+# Instalando gnome
+echo
+echo -e "${S} ${C}Instalando gnome...${F}"
+echo $pass_user | sudo -S pacman -S baobab cheese eog evince file-roller gdm gedit any gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-color-manager  gnome-control-center gnome-disk-utility gnome-documents gnome-font-viewer gnome-getting-started-docs gnome-keyring gnome-logs gnome-menus gnome-photos gnome-remote-desktop gnome-screenshot gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-software gnome-system-monitor gnome-themes-extra gnome-user-docs gnome-user-share gnome-video-effects gnome-weather grilo-plugins gvfs gvfs-afc gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb mutter nautilus networkmanager orca rygel simple-scan sushi totem tracker tracker3 tracker3-miners tracker-miners vino xdg-user-dirs-gtk yelp --noconfirm
+
 # Instalando pacotes
 echo
 echo -e "${S} ${C}Instalando pacotes necessários${F}"
-echo $pass_user | sudo -S pacman -S arch-wiki-docs arch-wiki-lite alsa-utils dconf-editor gnome-passwordsafe gnome-sound-recorder grub-customizer archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie cups dialog dosfstools efibootmgr git gedit gedit-plugins gimp gnome gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db man-pages-pt_br mesa-demos mtools neofetch os-prober pass rsync qbittorrent speedtest-cli totem ufw unrar xclip xcursor-vanilla-dmz-aa xdg-user-dirs xdg-utils youtube-dl pulseaudio pulseaudio-bluetooth lollypop --noconfirm
-
-# Desinstalando pacotes
-echo
-echo -e "${S} ${R}Desinstalando pacotes desnecessários${F}"
-echo $pass_user | sudo -S pacman -R epiphany gnome-books gnome-maps gnome-boxes gnome-contacts gnome-music gnome-terminal --noconfirm
+echo $pass_user | sudo -S pacman -S arch-wiki-docs arch-wiki-lite alsa-utils dconf-editor gnome-passwordsafe gnome-sound-recorder grub-customizer archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie cups dialog dosfstools efibootmgr git gedit gedit-plugins gimp gnome-keyring gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db man-pages-pt_br mesa-demos mtools neofetch os-prober pass rsync qbittorrent speedtest-cli totem ufw unrar xclip xcursor-vanilla-dmz-aa xdg-user-dirs xdg-utils youtube-dl pulseaudio pulseaudio-bluetooth lollypop --noconfirm
 
 # YAY
 echo
@@ -200,30 +200,30 @@ echo
 echo -e "${S} ${C}Baixando e instalando o tema Dracula no gedit${F}"
 TemaDraculaGedit
 
-# Menu para escolha do driver de vídeo
-echo
-echo -e "${S} ${C}Instalando Drivers de Vídeo${F}"
-echo
-echo -e "${S} ${C}[ 1 ] Instalar drivers Nvidia${F}"
-echo -e "${S} ${C}[ 2 ] Instalar driver VirtManager${F}"
-echo
-echo -en "${S} ${Y}Digite a opção desejada: ${F}"
-read opcao
-case $opcao in
-    1)
-        echo
-        echo -e "${S} ${C}Instalando o driver de vídeo da nvidia...${F}"
-        NvidiaDriver
-        ;;
-    2)
-        echo -e "${S} ${C}Instalando o driver de vídeo do virt-manager...${F}"
-        echo
-        VirtManagerDriver
-        ;;
-    *)
-        echo
-        echo "${S} ${R}O sistema será instalado sem os drivers!${F}"
-esac
+#  # Menu para escolha do driver de vídeo
+#  echo
+#  echo -e "${S} ${C}Instalando Drivers de Vídeo${F}"
+#  echo
+#  echo -e "${S} ${C}[ 1 ] Instalar drivers Nvidia${F}"
+#  echo -e "${S} ${C}[ 2 ] Instalar driver VirtManager${F}"
+#  echo
+#  echo -en "${S} ${Y}Digite a opção desejada: ${F}"
+#  read opcao
+#  case $opcao in
+    #  1)
+        #  echo
+        #  echo -e "${S} ${C}Instalando o driver de vídeo da nvidia...${F}"
+        #  NvidiaDriver
+        #  ;;
+    #  2)
+        #  echo -e "${S} ${C}Instalando o driver de vídeo do virt-manager...${F}"
+        #  echo
+        #  VirtManagerDriver
+        #  ;;
+    #  *)
+        #  echo
+        #  echo "${S} ${R}O sistema será instalado sem os drivers!${F}"
+#  esac
 
 # Instalando o virt-manager
 echo
