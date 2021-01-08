@@ -21,7 +21,7 @@ C='\033[0;36m'
 # Fechamento das cores no script
 F='\033[0m'
 # Seta utilizada no inicio das frases
-S='\e[32;1m>>>\e[m'
+S='\e[32;1m[+]\e[m'
 #----------------------------------------------------------------------
 VirtManagerDriver(){
     echo $pass_user | sudo -S pacman -S xf86-video-qxl --noconfirm
