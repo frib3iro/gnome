@@ -1,6 +1,0 @@
-baobab cheese eog epiphany evince file-roller gdm gedit any gnome-books gnome-boxes gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-color-manager gnome-contacts gnome-control-center gnome-disk-utility gnome-documents gnome-font-viewer gnome-getting-started-docs gnome-keyring gnome-logs gnome-maps gnome-menus gnome-music gnome-photos gnome-remote-desktop gnome-screenshot gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-software gnome-system-monitor gnome-terminal gnome-themes-extra gnome-user-docs gnome-user-share gnome-video-effects gnome-weather grilo-plugins gvfs gvfs-afc gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb mutter nautilus networkmanager orca rygel simple-scan sushi totem tracker tracker3 tracker3-miners tracker-miners vino xdg-user-dirs-gtk yelp 
-
-# comando usado
-pacman -Sg gnome
-
-tr '\n' ' ' < entrada.txt > saida.txt
