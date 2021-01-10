@@ -31,18 +31,6 @@ echo -e "${S} ${C}Atualizando...${F}"
 sleep 1
 sudo pacman -Syu --noconfirm
 
-# Instalando gnome
-echo
-echo -e "${S} ${C}Instalando gnome...${F}"
-sleep 1
-sudo pacman -S baobab cheese eog epiphany evince file-roller gdm gedit gnome-backgrounds gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-color-manager gnome-contacts gnome-control-center gnome-disk-utility gnome-documents gnome-font-viewer gnome-getting-started-docs gnome-keyring gnome-logs gnome-maps gnome-menus gnome-photos gnome-remote-desktop gnome-screenshot gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-software gnome-system-monitor gnome-themes-extra gnome-user-docs gnome-user-share gnome-video-effects gnome-weather grilo-plugins gvfs gvfs-afc gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb mutter nautilus networkmanager orca rygel sushi totem tracker tracker-miners tracker3 tracker3-miners vino xdg-user-dirs-gtk yelp simple-scan --noconfirm
-
-# Instalando pacotes
-echo
-echo -e "${S} ${C}Instalando pacotes necessários${F}"
-sleep 1
-sudo pacman -S arch-wiki-docs arch-wiki-lite alsa-utils dconf-editor gnome-passwordsafe gnome-sound-recorder gparted grub-customizer archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie cups dialog dosfstools efibootmgr git gedit-plugins gimp gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db man-pages-pt_br mesa-demos mtools neofetch os-prober pass rsync qbittorrent speedtest-cli ufw unrar xclip xcursor-vanilla-dmz-aa xdg-user-dirs xdg-utils youtube-dl pulseaudio pulseaudio-bluetooth lollypop --noconfirm
-
 # YAY
 echo
 echo -e "${S} ${C}Instalando o yay${F}"
@@ -50,6 +38,24 @@ sleep 1
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
+
+# Firmwares
+echo
+echo -e "${S} ${C}Instalando os${F} ${Y}firmwares warnigs${F} ${C}do archlinux${F}"
+sleep 1
+yay -S aic94xx-firmware wd719x-firmware upd72020x-fw --noconfirm
+
+# Instalando gnome
+echo
+echo -e "${S} ${C}Instalando gnome...${F}"
+sleep 1
+sudo pacman -S baobab cheese eog evince file-roller gdm gedit gnome-backgrounds gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-color-manager gnome-contacts gnome-control-center gnome-disk-utility gnome-documents gnome-font-viewer gnome-getting-started-docs gnome-keyring gnome-logs gnome-maps gnome-menus gnome-photos gnome-remote-desktop gnome-screenshot gnome-session gnome-settings-daemon gnome-shell gnome-shell-extensions gnome-software gnome-system-monitor gnome-themes-extra gnome-user-docs gnome-user-share gnome-video-effects gnome-weather grilo-plugins gvfs gvfs-afc gvfs-goa gvfs-google gvfs-gphoto2 gvfs-mtp gvfs-nfs gvfs-smb mutter nautilus networkmanager orca rygel sushi totem tracker tracker-miners tracker3 tracker3-miners vino xdg-user-dirs-gtk yelp simple-scan --noconfirm
+
+# Instalando pacotes
+echo
+echo -e "${S} ${C}Instalando pacotes necessários${F}"
+sleep 1
+sudo pacman -S arch-wiki-docs arch-wiki-lite alsa-utils dconf-editor gnome-passwordsafe gnome-sound-recorder gparted grub-customizer archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie cups dialog dosfstools efibootmgr git gedit-plugins gimp gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db man-pages-pt_br mesa-demos mtools neofetch os-prober pass rsync qbittorrent speedtest-cli ufw unrar xclip xcursor-vanilla-dmz-aa xdg-utils youtube-dl pulseaudio pulseaudio-bluetooth lollypop --noconfirm
 
 # Mintstick
 echo
@@ -74,12 +80,6 @@ echo -e "${S} ${C}Instalando Pacotes Hacker${F}"
 sleep 1
 sudo pacman -S aircrack-ng usbutils tcpdump wifite --noconfirm
 yay -S crunch --noconfirm
-
-# Firmwares
-echo
-echo -e "${S} ${C}Instalando os${F} ${Y}firmwares warnigs${F} ${C}do archlinux${F}"
-sleep 1
-yay -S aic94xx-firmware wd719x-firmware upd72020x-fw --noconfirm
 
 # Gnome-terminal-transparency
 echo
