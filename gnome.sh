@@ -41,7 +41,7 @@ sudo pacman -S baobab cheese eog evince file-roller gdm gedit gnome-backgrounds 
 echo
 echo -e "${S} ${C}Instalando pacotes...${F}"
 sleep 1
-sudo pacman -S arch-wiki-docs arch-wiki-lite alsa-utils dconf-editor gnome-passwordsafe gnome-sound-recorder gparted grub-customizer archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie cups dialog dosfstools efibootmgr git gedit-plugins gimp gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db man-pages-pt_br mesa-demos mtools neofetch os-prober pass rsync qbittorrent speedtest-cli ufw unrar xclip xcursor-vanilla-dmz-aa xdg-utils youtube-dl pulseaudio pulseaudio-bluetooth lollypop --noconfirm
+sudo pacman -S arch-wiki-docs arch-wiki-lite alsa-utils dconf-editor gnome-passwordsafe gnome-sound-recorder gparted grub-customizer archlinux-keyring archlinux-wallpaper bash-completion bluez bluez-utils chrome-gnome-shell cmatrix cronie cups dialog dosfstools efibootmgr git gedit-plugins gimp gnome-tweaks gnupg gst-libav gufw htop libreoffice libreoffice-fresh-pt-br lolcat man-db man-pages-pt_br mesa-demos mtools neofetch os-prober pass rsync qbittorrent shotwell speedtest-cli ufw unrar xclip xcursor-vanilla-dmz-aa xdg-utils youtube-dl pulseaudio pulseaudio-bluetooth lollypop --noconfirm
 
 # YAY
 echo
